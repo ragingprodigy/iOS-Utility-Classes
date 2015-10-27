@@ -28,8 +28,15 @@
     
     CGPoint theCenter = CGPointMake(circleWidth/2, circleHeight/2);
     
+    // Account for orientation changes
+    double radius = circleHeight;
+    
+    if (circleHeight < circleWidth) {
+        radius = circleWidth;
+    }
+    
     CGGradientDrawingOptions options = kCGGradientDrawsBeforeStartLocation;
-    CGContextDrawRadialGradient(context, myGradient, theCenter, 0.0, theCenter, circleHeight/1.3, options);
+    CGContextDrawRadialGradient(context, myGradient, theCenter, 0.0, theCenter, radius/1.3, options);
 }
 
 @end
